@@ -33,6 +33,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.plugin();
+userSchema.plugin(plm);
 
 module.exports = mongoose.model("User", userSchema);
