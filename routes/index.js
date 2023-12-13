@@ -4,7 +4,7 @@ const userModel = require("./users");
 const passport = require("passport");
 
 const localStrategy = require("passport-local");
-passport.authenticate(localStrategy(userModel.authenticate()));
+passport.use(new localStrategy(userModel.authenticate()));
 
 const isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) return next();
@@ -12,11 +12,14 @@ const isLoggedIn = (req, res, next) => {
 };
 
 router.get("/", (req, res) => {
-  res.render("index", { title: "Express" });
+  res.render("index");
 });
 
 router.get("/profile", isLoggedIn, (req, res, next) => {
   res.send("profile");
+});
+router.get("/login", (req, res) => {
+  res.render("login");
 });
 
 router.post("/register", (req, res) => {
@@ -34,7 +37,7 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/profile",
-    failureRedirect: "/",
+    failureRedirect: "/login",
   }),
   (req, res) => {}
 );
@@ -44,7 +47,7 @@ router.get("/logout", (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.redirect("/");
+    res.redirect("/login");
   });
 });
 
