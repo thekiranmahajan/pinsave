@@ -18,8 +18,8 @@ router.get("/", (req, res) => {
 router.get("/profile", isLoggedIn, (req, res, next) => {
   res.send("profile");
 });
-router.get("/login", (req, res) => {
-  res.render("login");
+router.get("/register", (req, res) => {
+  res.render("register");
 });
 
 router.post("/register", (req, res) => {
@@ -37,7 +37,7 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/profile",
-    failureRedirect: "/login",
+    failureRedirect: "/",
   }),
   (req, res) => {}
 );

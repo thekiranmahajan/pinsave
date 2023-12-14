@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
       ref: "Post",
     },
   ],
-  dp: {
+  avatar: {
     type: String,
   },
   email: {
@@ -29,6 +29,10 @@ const userSchema = new mongoose.Schema({
   fullname: {
     type: String,
     required: true,
+  },
+  boards: {
+    type: Array,
+    default: [],
   },
 });
 
