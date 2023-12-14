@@ -596,8 +596,14 @@ video {
 .mt-1{
   margin-top: 0.25rem;
 }
+.mt-2{
+  margin-top: 0.5rem;
+}
 .mt-3{
   margin-top: 0.75rem;
+}
+.mt-4{
+  margin-top: 1rem;
 }
 .mt-5{
   margin-top: 1.25rem;
@@ -611,6 +617,9 @@ video {
 .flex{
   display: flex;
 }
+.h-32{
+  height: 8rem;
+}
 .h-6{
   height: 1.5rem;
 }
@@ -620,11 +629,20 @@ video {
 .h-full{
   height: 100%;
 }
+.h-screen{
+  height: 100vh;
+}
 .w-16{
   width: 4rem;
 }
+.w-32{
+  width: 8rem;
+}
 .w-4\/5{
   width: 80%;
+}
+.w-5{
+  width: 1.25rem;
 }
 .w-60{
   width: 15rem;
@@ -647,23 +665,47 @@ video {
 .gap-1{
   gap: 0.25rem;
 }
+.gap-5{
+  gap: 1.25rem;
+}
+.overflow-hidden{
+  overflow: hidden;
+}
 .rounded-3xl{
   border-radius: 1.5rem;
 }
 .rounded-\[40px\]{
   border-radius: 40px;
 }
+.rounded-full{
+  border-radius: 9999px;
+}
 .bg-\[\#D50C22\]{
   --tw-bg-opacity: 1;
   background-color: rgb(213 12 34 / var(--tw-bg-opacity));
+}
+.bg-\[\#E2E2E2\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 226 226 / var(--tw-bg-opacity));
 }
 .bg-\[\#E3E3E3\]{
   --tw-bg-opacity: 1;
   background-color: rgb(227 227 227 / var(--tw-bg-opacity));
 }
+.bg-\[\#dadada\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(218 218 218 / var(--tw-bg-opacity));
+}
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.object-contain{
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.p-1{
+  padding: 0.25rem;
 }
 .px-2{
   padding-left: 0.5rem;
@@ -690,8 +732,19 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .text-\[0\.65rem\]{
   font-size: 0.65rem;
+}
+.text-\[0\.75rem\]{
+  font-size: 0.75rem;
+}
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .text-sm{
   font-size: 0.875rem;
@@ -715,7 +768,20 @@ video {
 .leading-5{
   line-height: 1.25rem;
 }
+.leading-8{
+  line-height: 2rem;
+}
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.opacity-80{
+  opacity: 0.8;
+}
+.opacity-95{
+  opacity: 0.95;
+}
+.grayscale{
+  --tw-grayscale: grayscale(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
