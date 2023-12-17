@@ -566,8 +566,11 @@ video {
 .right-8{
   right: 2rem;
 }
-.top-8{
-  top: 2rem;
+.top-2\/3{
+  top: 66.666667%;
+}
+.top-5{
+  top: 1.25rem;
 }
 .mb-1{
   margin-bottom: 0.25rem;
@@ -616,6 +619,9 @@ video {
 }
 .flex{
   display: flex;
+}
+.hidden{
+  display: none;
 }
 .h-32{
   height: 8rem;
@@ -695,6 +701,9 @@ video {
 .rounded-xl{
   border-radius: 0.75rem;
 }
+.bg-\[\#1f29375a\]{
+  background-color: #1f29375a;
+}
 .bg-\[\#D50C22\]{
   --tw-bg-opacity: 1;
   background-color: rgb(213 12 34 / var(--tw-bg-opacity));
@@ -759,6 +768,10 @@ video {
 .font-Montserrat{
   font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -806,6 +819,9 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.opacity-0{
+  opacity: 0;
+}
 .opacity-80{
   opacity: 0.8;
 }
@@ -815,4 +831,15 @@ video {
 .grayscale{
   --tw-grayscale: grayscale(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.transition-opacity{
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-300{
+  transition-duration: 300ms;
+}
+.hover\:opacity-100:hover{
+  opacity: 1;
 }
