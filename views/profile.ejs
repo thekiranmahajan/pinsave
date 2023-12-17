@@ -4,10 +4,10 @@
   class="container flex flex-col items-center h-screen w-full bg-white font-Montserrat"
 >
   <form
-    id="avatarUploadForm"
     hidden
+    id="avatarUploadForm"
     action="/file-upload"
-    method="post"
+    method="POST"
     enctype="multipart/form-data"
   >
     <input type="file" name="image" />
@@ -20,10 +20,10 @@
       >
         <i class="fa-solid fa-pencil text-white absolute top-2/3 text"></i>
       </span>
-      <div class="avatar bg-white rounded-full overflow-hidden">
+      <div class="avatar bg-white rounded-full overflow-hidden w-32 h-32">
         <img
           class="object-contain h-full w-full"
-          src="https://i.pinimg.com/736x/15/26/9f/15269f9a4e469e93eccbc7da0807c253.jpg"
+          src="/images/uploads/<%= user.avatar%>"
           alt="avatarImg"
         />
       </div>
@@ -51,7 +51,11 @@
         >Edit</a
       >
     </div>
-    <button class="px-10 py-2 rounded-lg bg-red-700 text text-xs text-white mt-2">Create a Post</button>
+    <button
+      class="px-10 py-2 rounded-lg bg-red-700 text text-xs text-white mt-2"
+    >
+      Create a Post
+    </button>
   </div>
   <div
     class="pinContainer flex justify-start flex-wrap h-full w-full px-10 py-4 mt-5"
@@ -65,14 +69,14 @@
     </div>
   </div>
 </div>
-<script>
+<script defer>
   document.querySelector("#avatarUploadIcon").addEventListener("click", () => {
     document.querySelector("#avatarUploadForm input").click();
   });
   document
     .querySelector("#avatarUploadForm input")
     .addEventListener("change", () => {
-      document.querySelector("#avatarUploadForm input").submit();
+      document.querySelector("#avatarUploadForm").submit();
     });
 </script>
 <%- include('./partials/footer.ejs') %>
