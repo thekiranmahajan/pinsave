@@ -12,14 +12,20 @@ const isLoggedIn = (req, res, next) => {
 };
 
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { nav: false });
 });
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
   const user = await userModel.findOne({
     username: req.session.passport.user,
   });
-  res.render("profile", { user });
+  res.render("profile", { user, nav: true });
+})
+router.get("/create", isLoggedIn, async (req, res, next) => {
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  res.render("create", { user, nav: true });
 });
 
 router.post(
@@ -40,7 +46,7 @@ router.post(
 );
 
 router.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register", {nav: false});
 });
 
 router.post("/register", (req, res) => {
