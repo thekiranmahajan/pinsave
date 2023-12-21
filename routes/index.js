@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const userModel = require("./users");
+const postModel = require("./create");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 passport.use(new localStrategy(userModel.authenticate()));
@@ -20,13 +21,24 @@ router.get("/profile", isLoggedIn, async (req, res, next) => {
     username: req.session.passport.user,
   });
   res.render("profile", { user, nav: true });
-})
+});
 router.get("/create", isLoggedIn, async (req, res, next) => {
   const user = await userModel.findOne({
     username: req.session.passport.user,
   });
   res.render("create", { user, nav: true });
 });
+router.post(
+  "/create",
+  isLoggedIn,
+  upload.single("createPost"),
+  async (req, res, next) => {
+    const user = await userModel.findOne({
+      username: req.session.passport.user,
+    });
+    res.render("create", { user, nav: true });
+  }
+);
 
 router.post(
   "/file-upload",
@@ -46,7 +58,7 @@ router.post(
 );
 
 router.get("/register", (req, res) => {
-  res.render("register", {nav: false});
+  res.render("register", { nav: false });
 });
 
 router.post("/register", (req, res) => {
