@@ -26,7 +26,6 @@ searchBar.addEventListener("blur", () => {
   }
 });
 
-
 const links = document.querySelectorAll(".btnlinks");
 const setActive = (link) => {
   links.forEach((e) => {
@@ -44,5 +43,51 @@ links.forEach((link) => {
   });
   if (localStorage.getItem(link.id) === "isActive") {
     setActive(link);
+  }
+});
+
+// Get references to elements
+const dropdownMenu = document.getElementById("dropdownMenu");
+const icons = document.querySelectorAll(".icon");
+const contentSections = document.querySelectorAll(".dropdown-content");
+
+// Function to hide all content sections
+function hideAllContent() {
+  contentSections.forEach((section) => {
+    section.classList.add("hidden");
+  });
+}
+
+// Function to handle icon clicks
+function handleIconClick(contentToShow) {
+  hideAllContent();
+  contentToShow.classList.remove("hidden");
+  dropdownMenu.classList.remove("hidden");
+}
+
+// Event listener for icon clicks
+icons.forEach((icon) => {
+  icon.addEventListener("click", () => {
+    const contentId = icon.dataset.content;
+    const contentToShow = document.getElementById(contentId);
+    if (contentToShow) {
+      handleIconClick(contentToShow);
+    } else {
+      hideAllContent();
+      dropdownMenu.classList.add("hidden");
+    }
+  });
+});
+
+// To handle click on screen elsewhere
+document.addEventListener("click", (event) => {
+  const isClickInsideDropdown = dropdownMenu.contains(event.target);
+  const isClickInsideIcon = Array.from(icons).some((icon) =>
+    icon.contains(event.target)
+  );
+
+  if (!isClickInsideDropdown && !isClickInsideIcon) {
+    hideAllContent();
+    dropdownMenu.classList.add("hidden");
   }
 });

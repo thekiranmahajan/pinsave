@@ -29,7 +29,6 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
   res.render("create", { user, nav: true });
 });
 
-
 router.post(
   "/create",
   isLoggedIn,
@@ -98,7 +97,7 @@ router.get("/logout", (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.redirect("/login");
+    res.redirect("/");
   });
 });
 
