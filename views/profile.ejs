@@ -1,82 +1,50 @@
 <%- include('./partials/header.ejs') %>
 
-<div
-  class="container flex flex-col items-center h-screen w-full bg-white font-Montserrat"
->
-  <form
-    hidden
-    id="avatarUploadForm"
-    action="/file-upload"
-    method="POST"
-    enctype="multipart/form-data"
-  >
-    <input type="file" name="image" />
-  </form>
-  <div class="avatarInfo mt-8 flex items-center justify-center flex-col w-full">
-    <div class="relative w-32 h-32">
-      <span
-        id="avatarUploadIcon"
-        class="flex items-center justify-center absolute w-full h-full rounded-full bg-[#1f29375a] opacity-0 hover:opacity-100 transition-opacity duration-300"
-      >
-        <i class="fa-solid fa-pencil text-white absolute top-2/3 text"></i>
-      </span>
-      <div class="avatar bg-white rounded-full overflow-hidden w-32 h-32">
-        <img
-          class="object-contain h-full w-full"
-          src="/images/uploads/<%= user.avatar%>"
-          alt="avatarImg"
-        />
+  <div class="container flex flex-col items-center h-screen w-full bg-white font-Montserrat select-none">
+    <form hidden id="avatarUploadForm" action="/file-upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" />
+    </form>
+    <div class="avatarInfo mt-8 flex items-center justify-center flex-col w-full">
+      <div class="relative w-32 h-32">
+        <span id="avatarUploadIcon"
+          class="flex items-center justify-center absolute w-full h-full rounded-full bg-[#1f29375a] opacity-0 hover:opacity-100 transition-opacity duration-300">
+          <i class="fa-solid fa-pencil text-white absolute top-2/3 text"></i>
+        </span>
+        <div class="avatar bg-white rounded-full overflow-hidden w-32 h-32">
+          <img class="object-contain h-full w-full" src="/images/uploads/<%= user.avatar%>" alt="avatarImg" />
+        </div>
+      </div>
+
+      <h2 class="text-4xl font-extrabold mt-4">Kiran Mahajan</h2>
+      <p class="flex justify-center items-center w-full p-1 mt-2 opacity-80">
+        <img class="grayscale w-5" src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
+          alt="Pinterest small logo" />officialkiranmahajan
+      </p>
+      <p class="font-semibold mt-2 opacity-95"><span>69 </span>following</p>
+      <div class="flex justify-center items-center w-full gap-5 mt-4 ">
+        <a href="#"
+          class="py-3 px-4 rounded-3xl bg-[#E2E2E2] text-base font-semibold outline-none hover:ring-4 focus:ring-4 ring-blue-400">Share</a>
+
+        <a href="#"
+          class="py-3 px-4 rounded-3xl bg-[#E2E2E2] text-base font-semibold outline-none hover:ring-4 focus:ring-4 ring-blue-400">Edit</a>
+      </div>
+
+    </div>
+    <div class="pinContainer flex justify-start flex-wrap h-full w-full px-10 py-4 mt-5">
+      <div class="card bg-yellow-400 w-52 h-40 rounded-xl overflow-hidden">
+        <img class="object-contain" src="https://i.pinimg.com/564x/72/b7/fa/72b7fa20608cb0975be3aaf588f094a5.jpg"
+          alt="pin" />
       </div>
     </div>
-
-    <h2 class="text-4xl font-extrabold mt-4">Kiran Mahajan</h2>
-    <p class="flex justify-center items-center w-full p-1 mt-2 opacity-80">
-      <img
-        class="grayscale w-5"
-        src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
-        alt="Pinterest small logo"
-      />officialkiranmahajan
-    </p>
-    <p class="font-semibold mt-2 opacity-95"><span>96 </span>following</p>
-    <div class="flex justify-center items-center w-full gap-5 mt-4">
-      <a
-        href="#"
-        class="py-3 px-4 rounded-3xl bg-[#E2E2E2] text-base font-semibold"
-        >Share</a
-      >
-
-      <a
-        href="/edit"
-        class="py-3 px-4 rounded-3xl bg-[#E2E2E2] text-base font-semibold"
-        >Edit</a
-      >
-    </div>
-    <button
-      class="px-10 py-2 rounded-lg bg-red-700 text text-xs text-white mt-2"
-    >
-      Create a Post
-    </button>
   </div>
-  <div
-    class="pinContainer flex justify-start flex-wrap h-full w-full px-10 py-4 mt-5"
-  >
-    <div class="card bg-yellow-400 w-52 h-40 rounded-xl overflow-hidden">
-      <img
-        class="object-contain"
-        src="https://i.pinimg.com/564x/72/b7/fa/72b7fa20608cb0975be3aaf588f094a5.jpg"
-        alt="pin"
-      />
-    </div>
-  </div>
-</div>
-<script defer>
-  document.querySelector("#avatarUploadIcon").addEventListener("click", () => {
-    document.querySelector("#avatarUploadForm input").click();
-  });
-  document
-    .querySelector("#avatarUploadForm input")
-    .addEventListener("change", () => {
-      document.querySelector("#avatarUploadForm").submit();
+  <script defer>
+    document.querySelector("#avatarUploadIcon").addEventListener("click", () => {
+      document.querySelector("#avatarUploadForm input").click();
     });
-</script>
-<%- include('./partials/footer.ejs') %>
+    document
+      .querySelector("#avatarUploadForm input")
+      .addEventListener("change", () => {
+        document.querySelector("#avatarUploadForm").submit();
+      });
+  </script>
+  <%- include('./partials/footer.ejs') %>
