@@ -1,121 +1,80 @@
 <%- include('./partials/header.ejs') %>
-<div class="flex items-start h-[680px] w-full overflow-hidden font-Montserrat select-none">
-  <div class="border-2 h-[706px] w-24">
-    <div
-      class="border-b-2 h-40 w-full flex justify-center items-center flex-col"
-    >
-      <span class="h-1/2 w-full flex items-center justify-center"
-        ><i class="fa-solid fa-angles-right text-xl font-bold"></i
-      ></span>
-      <span class="h-1/2 w-full flex items-center justify-center"
-        ><i class="fa-solid fa-plus text-xl font-bold"></i
-      ></span>
+  <div class="flex items-start h-[680px] w-full overflow-hidden font-Montserrat select-none">
+    <div class="border-2 h-[706px] w-24">
+      <div class="border-b-2 h-40 w-full flex justify-center items-center flex-col">
+        <span class="h-1/2 w-full flex items-center justify-center"><i
+            class="fa-solid fa-angles-right text-xl font-bold"></i></span>
+        <span class="h-1/2 w-full flex items-center justify-center"><i
+            class="fa-solid fa-plus text-xl font-bold"></i></span>
+      </div>
     </div>
-  </div>
-  <div class="flex flex-col h-full w-full">
-    <div class="flex items-center border-y-2 h-20">
-      <h1 class="text-xl font-extrabold ml-6">Create Pin</h1>
-    </div>
+    <div class="flex flex-col h-full w-full">
+      <div class="flex items-center border-y-2 h-20">
+        <h1 class="text-xl font-extrabold ml-6">Create Pin</h1>
+      </div>
 
-    <div class="flex justify-center gap-16 h-full w-full mt-4">
-      <div
-        class="max-h-[450px] max-w-[25%] overflow-hidden rounded-3xl flex items-center justify-center"
-      >
-        <img
-          id="imagePreview"
-          class="object-contain rounded-3xl hidden"
-          src=""
-          alt="selected image"
-        />
-        <div
-          id="postUploadBox"
-          class="bg-[#E2E2E2] h-[450px] w-full rounded-3xl border-dashed border-gray-400 border-2 flex items-center justify-center flex-col relative"
-        >
-          <div class="flex items-center justify-center flex-col">
-            <span class="text-3xl"
-              ><i class="fa-solid fa-circle-arrow-up"></i
-            ></span>
-            <p class="w-[85%] text-center mt-4 text-sm font-bold">
-              Choose a file or drag and drop it here
+      <div class="flex justify-center gap-16 h-full w-full mt-4">
+        <div class="max-h-[450px] max-w-[25%] overflow-hidden rounded-3xl flex items-center justify-center">
+          <img id="imagePreview" class="object-contain rounded-3xl hidden" src="" alt="selected image" />
+          <div id="postUploadBox"
+            class="bg-[#E2E2E2] h-[450px] w-full rounded-3xl border-dashed border-gray-400 border-2 flex items-center justify-center flex-col relative">
+            <div class="flex items-center justify-center flex-col">
+              <span class="text-3xl"><i class="fa-solid fa-circle-arrow-up"></i></span>
+              <p class="w-[85%] text-center mt-4 text-sm font-bold">
+                Choose a file or drag and drop it here
+              </p>
+            </div>
+            <p class="text-center relative top-[28%] text-xs font-semibold w-[95%]">
+              We recommend using high quality .jpg files less than 20MB
             </p>
           </div>
-          <p
-            class="text-center relative top-[28%] text-xs font-semibold w-[95%]"
-          >
-            We recommend using high quality .jpg files less than 20MB
-          </p>
         </div>
+        <form id="createPostForm" action="/create" method="post" enctype="multipart/form-data"
+          class="flex flex-col w-[45%] px-4 py-2 mr-10">
+          <input hidden id="imageUploadInput" name="createPost" type="file" />
+          <label class="text-xs mb-2 ml-1 font-semibold" for="title">Title *</label>
+          <input
+            class="py-2 px-4 rounded-xl font-semibold text-sm h-12 outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] mb-6"
+            id="title" type="text" name="title" placeholder="Add a title" />
+          <label class="text-xs mb-2 ml-1 font-semibold" for="description">Description *</label>
+          <textarea
+            class="h-28 py-6 px-4 rounded-xl outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] resize-none font-semibold text-sm mb-14"
+            name="description" id="description" cols="20" rows="10" maxlength="500"
+            placeholder="Add a detailed description"></textarea>
+          <label class="text-xs mb-2 ml-1 font-semibold" for="link">Link</label>
+          <input
+            class="py-2 px-4 rounded-xl font-semibold text-sm h-12 outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] mb-6"
+            type="text" name="link" id="link" placeholder="Add a link" />
+          <input
+            class="mt-8 bg-red-600 text-white py-2 px-4 rounded-xl font-semibold active:scale-98 transition ease-in-out delay-100 outline-none hover:ring-4 ring-blue-400"
+            type="submit" value="Publish" />
+        </form>
       </div>
-      <form
-        id="createPostForm"
-        action="/create"
-        method="post"
-        enctype="multipart/form-data"
-        class="flex flex-col w-[45%] px-4 py-2 mr-10"
-      >
-        <input hidden id="imageUploadInput" name="createPost" type="file" />
-        <label class="text-xs mb-2 ml-1 font-semibold" for="title"
-          >Title *</label
-        >
-        <input
-          class="py-2 px-4 rounded-xl font-semibold text-sm h-12 outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] mb-6"
-          id="title"
-          type="text"
-          name="title"
-          placeholder="Add a title"
-        />
-        <label class="text-xs mb-2 ml-1 font-semibold" for="description"
-          >Description *</label
-        >
-        <textarea
-          class="h-28 py-6 px-4 rounded-xl outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] resize-none font-semibold text-sm mb-14"
-          name="description"
-          id="description"
-          cols="20"
-          rows="10"
-          maxlength="500"
-          placeholder="Add a detailed description"
-        ></textarea>
-        <label class="text-xs mb-2 ml-1 font-semibold" for="link">Link</label>
-        <input
-          class="py-2 px-4 rounded-xl font-semibold text-sm h-12 outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] mb-6"
-          type="text"
-          name="link"
-          id="link"
-          placeholder="Add a link"
-        />
-        <input
-          class="mt-8 bg-red-600 text-white py-2 px-4 rounded-xl font-semibold active:scale-98 transition ease-in-out delay-100 outline-none hover:ring-4 ring-blue-400"
-          type="submit"
-          value="Publish"
-        />
-      </form>
     </div>
   </div>
-</div>
-<script>
-  const postUploadBox = document.getElementById("postUploadBox");
-  const imageUploadInput = document.getElementById("imageUploadInput");
-  postUploadBox.addEventListener("click", () => {
-    imageUploadInput.click();
-  });
+  <script>
+    const postUploadBox = document.getElementById("postUploadBox");
+    const imageUploadInput = document.getElementById("imageUploadInput");
+    postUploadBox.addEventListener("click", () => {
+      imageUploadInput.click();
+    });
 
-  imageUploadInput.addEventListener("change", function (event) {
-    const file = event.target.files[0]; //checks whether file is selected or not
+    imageUploadInput.addEventListener("change", function (event) {
+      const file = event.target.files[0]; //checks whether file is selected or not
 
-    if (file) {
-      const render = new FileReader(); //in-built fn of JS to read selected files info using input field
+      if (file) {
+        const render = new FileReader(); //in-built fn of JS to read selected files info using input field
 
-      render.onload = (e) => {
-        const imagePreview = document.getElementById("imagePreview");
+        render.onload = (e) => {
+          const imagePreview = document.getElementById("imagePreview");
 
-        imagePreview.src = e.target.result;
-        imagePreview.classList.remove("hidden");
-        postUploadBox.classList.add("hidden");
-      };
+          imagePreview.src = e.target.result;
+          imagePreview.classList.remove("hidden");
+          postUploadBox.classList.add("hidden");
+        };
 
-      render.readAsDataURL(file);
-    }
-  });
-</script>
-<%- include('./partials/footer.ejs') %>
+        render.readAsDataURL(file);
+      }
+    });
+  </script>
+  <%- include('./partials/footer.ejs') %>
