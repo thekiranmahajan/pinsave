@@ -28,6 +28,8 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
   });
   res.render("create", { user, nav: true });
 });
+
+
 router.post(
   "/create",
   isLoggedIn,
@@ -36,7 +38,17 @@ router.post(
     const user = await userModel.findOne({
       username: req.session.passport.user,
     });
-    res.render("create", { user, nav: true });
+    const post = await postModel.create({
+      user: user._id,
+      postImage: req.file.filename,
+      title: req.body.title,
+      description: req.body.description,
+      link: req.body.link,
+    });
+
+    user.posts.push(post._id);
+    await user.save();
+    res.redirect("profile");
   }
 );
 

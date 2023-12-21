@@ -1,5 +1,5 @@
 <%- include('./partials/header.ejs') %>
-<div class="flex items-start h-[680px] w-full overflow-hidden font-Montserrat">
+<div class="flex items-start h-[680px] w-full overflow-hidden font-Montserrat select-none">
   <div class="border-2 h-[706px] w-24">
     <div
       class="border-b-2 h-40 w-full flex justify-center items-center flex-col"
@@ -16,40 +16,44 @@
     <div class="flex items-center border-y-2 h-20">
       <h1 class="text-xl font-extrabold ml-6">Create Pin</h1>
     </div>
+
     <div class="flex justify-center gap-16 h-full w-full mt-4">
+      <div
+        class="max-h-[450px] max-w-[25%] overflow-hidden rounded-3xl flex items-center justify-center"
+      >
+        <img
+          id="imagePreview"
+          class="object-contain rounded-3xl hidden"
+          src=""
+          alt="selected image"
+        />
+        <div
+          id="postUploadBox"
+          class="bg-[#E2E2E2] h-[450px] w-full rounded-3xl border-dashed border-gray-400 border-2 flex items-center justify-center flex-col relative"
+        >
+          <div class="flex items-center justify-center flex-col">
+            <span class="text-3xl"
+              ><i class="fa-solid fa-circle-arrow-up"></i
+            ></span>
+            <p class="w-[85%] text-center mt-4 text-sm font-bold">
+              Choose a file or drag and drop it here
+            </p>
+          </div>
+          <p
+            class="text-center relative top-[28%] text-xs font-semibold w-[95%]"
+          >
+            We recommend using high quality .jpg files less than 20MB
+          </p>
+        </div>
+      </div>
       <form
         id="createPostForm"
-        hidden
         action="/create"
         method="post"
         enctype="multipart/form-data"
-      >
-        <input name="createPost" type="file" />
-      </form>
-      <div
-      id="postUploadBox"
-        class="bg-[#E2E2E2] h-[450px] w-[26%] rounded-3xl border-dashed border-gray-400 border-2 flex items-center justify-center flex-col relative"
-      >
-        <div
-          
-          class="flex items-center justify-center flex-col"
-        >
-          <span class="text-3xl"
-            ><i class="fa-solid fa-circle-arrow-up"></i
-          ></span>
-          <p class="w-[85%] text-center mt-4 text-sm font-bold">
-            Choose a file or drag and drop it here
-          </p>
-        </div>
-        <p class="text-center relative top-[28%] text-xs font-semibold w-[95%]">
-          We recommend using high quality .jpg files less than 20MB
-        </p>
-      </div>
-      <form
-        action="/create"
-        method="post"
         class="flex flex-col w-[45%] px-4 py-2 mr-10"
       >
+        <input hidden id="imageUploadInput" name="createPost" type="file" />
         <label class="text-xs mb-2 ml-1 font-semibold" for="title"
           >Title *</label
         >
@@ -90,14 +94,28 @@
   </div>
 </div>
 <script>
-  document.getElementById("postUploadBox").addEventListener("click", () => {
-    document.querySelector("#createPostForm input").click();
+  const postUploadBox = document.getElementById("postUploadBox");
+  const imageUploadInput = document.getElementById("imageUploadInput");
+  postUploadBox.addEventListener("click", () => {
+    imageUploadInput.click();
   });
 
-  document
-    .querySelector("#createPostForm input")
-    .addEventListener("change", () => {
-      document.querySelector("#createPostForm").submit();
-    });
+  imageUploadInput.addEventListener("change", function (event) {
+    const file = event.target.files[0]; //checks whether file is selected or not
+
+    if (file) {
+      const render = new FileReader(); //in-built fn of JS to read selected files info using input field
+
+      render.onload = (e) => {
+        const imagePreview = document.getElementById("imagePreview");
+
+        imagePreview.src = e.target.result;
+        imagePreview.classList.remove("hidden");
+        postUploadBox.classList.add("hidden");
+      };
+
+      render.readAsDataURL(file);
+    }
+  });
 </script>
 <%- include('./partials/footer.ejs') %>
