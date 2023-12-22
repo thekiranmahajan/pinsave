@@ -6,11 +6,6 @@
 
 @layer components {
   .custom-input {
-    @apply p-3 rounded-2xl bg-transparent focus:ring-[0.25rem] ring-blue-300 outline-none focus:outline-none border-2 border-[#A5A5A5] mb-1 placeholder:text-sm;
-  }
-}
-@layer utilities {
-  .custom-hidden {
-    display: none;
+    @apply p-3 rounded-2xl bg-transparent focus:ring-[0.25rem] ring-blue-300 outline-none focus:outline-none border-2 border-[#A5A5A5] mb-2 placeholder:text-sm;
   }
 }
