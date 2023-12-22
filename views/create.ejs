@@ -1,7 +1,7 @@
 <%- include('./partials/header.ejs') %>
-  <div class="flex items-start h-[680px] w-full overflow-hidden font-Montserrat select-none">
-    <div class="border-2 h-[706px] w-24">
-      <div class="border-b-2 h-40 w-full flex justify-center items-center flex-col">
+  <div class="flex items-start h-[800px]  lg:h-[680px] w-full overflow-hidden font-Montserrat select-none">
+    <div class="border-2 h-full  lg:h-[706px] w-12 lg:w-24">
+      <div class="border-b-2 h-80 lg:h-40 w-full flex justify-center items-center flex-col">
         <span class="h-1/2 w-full flex items-center justify-center"><i
             class="fa-solid fa-angles-right text-xl font-bold"></i></span>
         <span class="h-1/2 w-full flex items-center justify-center"><i
@@ -9,28 +9,29 @@
       </div>
     </div>
     <div class="flex flex-col h-full w-full">
-      <div class="flex items-center border-y-2 h-20">
-        <h1 class="text-xl font-extrabold ml-6">Create Pin</h1>
+      <div class="flex items-center border-y-2 lg:h-20 h-16">
+        <h1 class="lg:text-xl text-base font-extrabold lg:ml-6 ml-4">Create Pin</h1>
       </div>
 
-      <div class="flex justify-center gap-16 h-full w-full mt-4">
-        <div class="max-h-[450px] max-w-[25%] overflow-hidden rounded-3xl flex items-center justify-center">
+      <div class="flex flex-col lg:flex-row justify-center gap-8 lg:gap-16 h-full w-full mt-4">
+        <div
+          class="lg:max-h-[450px] h-56 lg:max-w-[25%] overflow-hidden rounded-3xl flex items-center justify-center mx-4 my-2">
           <img id="imagePreview" class="object-contain rounded-3xl hidden" src="" alt="selected image" />
           <div id="postUploadBox"
-            class="bg-[#E2E2E2] h-[450px] w-full rounded-3xl border-dashed border-gray-400 border-2 flex items-center justify-center flex-col relative">
+            class="bg-[#E2E2E2] lg:h-[450px] w-64 h-56 lg:w-full rounded-xl lg:rounded-3xl border-dashed border-gray-400 border-2 flex items-center justify-center flex-col relative">
             <div class="flex items-center justify-center flex-col">
               <span class="text-3xl"><i class="fa-solid fa-circle-arrow-up"></i></span>
-              <p class="w-[85%] text-center mt-4 text-sm font-bold">
+              <p class="lg:w-[85%] text-center mt-2 lg:mt-4 text-sm font-bold">
                 Choose a file or drag and drop it here
               </p>
             </div>
-            <p class="text-center relative top-[28%] text-xs font-semibold w-[95%]">
+            <p class="text-center relative top-10 lg:top-[28%] text-xs font-semibold  w-[95%]">
               We recommend using high quality .jpg files less than 20MB
             </p>
           </div>
         </div>
         <form id="createPostForm" action="/create" method="post" enctype="multipart/form-data"
-          class="flex flex-col w-[45%] px-4 py-2 mr-10">
+          class="flex flex-col lg:w-[45%]  lg:px-4  lg:py-2 mx-4 lg:mr-10">
           <input hidden id="imageUploadInput" name="createPost" type="file" />
           <label class="text-xs mb-2 ml-1 font-semibold" for="title">Title *</label>
           <input
@@ -38,7 +39,7 @@
             id="title" type="text" name="title" placeholder="Add a title" />
           <label class="text-xs mb-2 ml-1 font-semibold" for="description">Description *</label>
           <textarea
-            class="h-28 py-6 px-4 rounded-xl outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] resize-none font-semibold text-sm mb-14"
+            class="h-28 py-6 px-4 rounded-xl outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] resize-none font-semibold text-sm mb-5 lg:mb-14"
             name="description" id="description" cols="20" rows="10" maxlength="500"
             placeholder="Add a detailed description"></textarea>
           <label class="text-xs mb-2 ml-1 font-semibold" for="link">Link</label>
@@ -46,7 +47,7 @@
             class="py-2 px-4 rounded-xl font-semibold text-sm h-12 outline-none focus:ring-4 ring-blue-400 border-2 border-[#E2E2E2] mb-6"
             type="text" name="link" id="link" placeholder="Add a link" />
           <input
-            class="mt-8 bg-red-600 text-white py-2 px-4 rounded-xl font-semibold active:scale-98 transition ease-in-out delay-100 outline-none hover:ring-4 ring-blue-400"
+            class="lg:mt-8 mt-4 bg-red-600 text-white py-2 px-4 rounded-xl font-semibold active:scale-98 transition ease-in-out delay-100 outline-none hover:ring-4 ring-blue-400"
             type="submit" value="Publish" />
         </form>
       </div>
