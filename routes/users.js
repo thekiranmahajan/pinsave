@@ -1,7 +1,17 @@
 const mongoose = require("mongoose");
 const plm = require("passport-local-mongoose");
+require("dotenv").config();
 
-mongoose.connect("mongodb://127.0.0.1:27017/pinsave");
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("MongoDB Connected Successfully");
+  } catch (error) {
+    console.log(`MongoDB failed to connect: ${error.messsage}`);
+  }
+};
+
+connectDB();
 
 const userSchema = new mongoose.Schema({
   username: {
