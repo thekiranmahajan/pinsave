@@ -58,8 +58,7 @@
       <div id="profileIcon" data-content="forProfileIcon"
         class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full h-12 w-12 ml-2 icon">
         <div class="rounded-full h-7 w-7 overflow-hidden border-2 border-black">
-          <img class="object-contain h-full w-full"
-            src="https://i.pinimg.com/736x/15/26/9f/15269f9a4e469e93eccbc7da0807c253.jpg" alt="avatarImg" />
+          <img class="object-contain h-full w-full" src="/images/uploads/<%= user.avatar%>" alt="avatarImg" />
         </div>
       </div>
       <span id="arrowIcon" data-content="forArrowIcon"
@@ -77,38 +76,34 @@
 
           <div id="forProfileIcon" class="dropdown-content flex items-center justify-center flex-col gap-10 hidden">
             <div class="rounded-full h-28 w-28 bg-gray-400 overflow-hidden">
-              <a href="/profile"><img src="https://i.pinimg.com/564x/72/b7/fa/72b7fa20608cb0975be3aaf588f094a5.jpg"
-                  alt="Avatar" /></a>
+              <a href="/profile"><img src="/images/uploads/<%= user.avatar%>" alt="Avatar" /></a>
             </div>
             <a href="/logout"
               class=" outline-none focus:ring-4 hover:ring-4 ring-blue-400 bg-red-600 text-white text-sm py-2 px-4 font-bold rounded-xl">Logout</a>
           </div>
-          <div id="forCommentIcon" class="dropdown-content hidden">
+          <div id="forBellIcon" class="dropdown-content hidden">
             <h1 class="text-center">You are alone <br> 🥹</h1>
           </div>
 
-          <div id="forBellIcon" class="dropdown-content h-full w-full flex flex-col items-center hidden">
+          <div id="forCommentIcon" class="dropdown-content h-full w-full flex flex-col items-center hidden">
 
             <div class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2 ">
               <div class="h-7 w-7 ml-2 relative ">
-                <img class="rounded-full h-7"
-                  src="https://i.pinimg.com/564x/72/b7/fa/72b7fa20608cb0975be3aaf588f094a5.jpg" alt="GF">
+                <img class="rounded-full h-7" src="https://avatars.githubusercontent.com/u/144778485?v=4" alt="GF">
                 <span class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"></span>
               </div>
               <p class="text-xs font-bold text-zinc-500 leading-none ">Your best friend Wit..</p>
             </div>
             <div class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2 ">
               <div class="h-7 w-7 ml-2 relative ">
-                <img class="rounded-full h-7"
-                  src="https://i.pinimg.com/564x/72/b7/fa/72b7fa20608cb0975be3aaf588f094a5.jpg" alt="GF">
+                <img class="rounded-full h-7" src="https://avatars.githubusercontent.com/u/144778485?v=4" alt="GF">
                 <span class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"></span>
               </div>
               <p class="text-xs font-bold text-zinc-500 leading-none ">Hello! Rayyy</p>
             </div>
             <div class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2 ">
               <div class="h-7 w-7 ml-2 relative ">
-                <img class="rounded-full h-7"
-                  src="https://i.pinimg.com/564x/72/b7/fa/72b7fa20608cb0975be3aaf588f094a5.jpg" alt="GF">
+                <img class="rounded-full h-7" src="https://avatars.githubusercontent.com/u/144778485?v=4" alt="GF">
                 <span class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"></span>
               </div>
               <p class="text-xs font-bold text-zinc-500 leading-none ">How are you?</p>
