@@ -18,13 +18,13 @@
 <body>
   <% if(nav===true){%>
     <div
-      class="nav flex justify-normal items-center h-[5rem] lg:h-[4.3] w-full px-2 lg:px-5 lg:pt-[0.7rem] pt-1 font-Montserrat mb-4 lg:shadow-sm shadow-md select-none gap-2">
+      class="nav flex justify-normal items-center h-[5rem] lg:h-[4.3] w-full px-2 lg:px-5 lg:pt-[0.7rem] pt-1 font-Montserrat mb-4 lg:shadow-sm shadow-md select-none gap-1">
       <div
-        class="flex lg:mr-2 lg:mt-2 items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full h-16 w-16 lg:h-12 lg:w-12 ">
-        <img class="w-16 lg:w-9" src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
+        class="flex lg:mr-2 lg:mt-2 items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10  w-12  ">
+        <img class="w-14 lg:w-9" src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
           alt="pinterest logo" />
       </div>
-      <div class="navlinks gap-2 flex">
+      <div class="navlinks lg:gap-2 flex">
         <a id="homelink"
           class="py-3 px-4 rounded-full leading-6 mt-1 font-extrabold focus:ring-4 ring-blue-400 btnlinks hidden lg:block"
           href="/">Home</a>
@@ -32,52 +32,52 @@
           class="py-3 px-4 rounded-full leading-6 mt-1 font-extrabold focus:ring-4 ring-blue-400 btnlinks hidden lg:block"
           href="#">Explore</a>
         <a id="createlink"
-          class="lg:py-3 lg:px-4 py-2 px-3 rounded-full lg:leading-6 lg:mt-1 text-base font-bold focus:ring-4 ring-blue-400 btnlinks"
+          class="lg:py-3 lg:px-4 py-2 px-3 rounded-full lg:leading-6 lg:mt-1 text-base font-bold focus:ring-4 ring-blue-400 btnlinks mr-1"
           href="/create">Create</a>
       </div>
-      <div class="relative flex items-center justify-center w-[65%]">
+      <div class="relative flex items-center justify-center w-40 lg:w-[65%]">
         <input id="searchBar"
-          class="lg:ml-4 rounded-3xl bg-[#E2E2E2] lg:py-3 lg:px-5 py-2 px-3 w-full placeholder-opacity-80 placeholder-black placeholder:font-bold placeholder:text-sm outline-none focus:ring-4 ring-blue-400 placeholder-transparent"
+          class="lg:ml-4 rounded-3xl bg-[#E2E2E2] lg:py-3 lg:px-5 py-2 px-3 w-full placeholder-opacity-80 placeholder-black placeholder:font-bold placeholder:text-sm outline-none focus:ring-4 ring-blue-400 placeholder-transparent text-sm lg:text-base"
           type="text" placeholder="Search" />
         <span id="searchIcon"
           class="flex items-center justify-center gap-1 absolute lg:top-3 lg:left-7 opacity-100 text-sm left-2"><i
-            class="fa-solid fa-magnifying-glass "></i>Search</span>
+            class="fa-solid fa-magnifying-glass "></i><span class="hidden lg:block">Search</span></span>
 
         <span id="crossMarkIcon"
-          class="text-2xl rounded-full h-12 w-12 flex items-center justify-center absolute bottom-0 right-0 hover:bg-[#ffffff] opacity-0"><i
+          class="lg:text-2xl text-xl rounded-full lg:h-12 lg:w-12 flex items-center justify-center absolute top-[0.55] right-0 lg:bottom-0 lg:right-0 hover:bg-[#ffffff] opacity-0"><i
             class="fa-solid fa-circle-xmark"></i></span>
       </div>
 
 
 
       <span id="bellIcon" data-content="forBellIcon"
-        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full h-12 w-12 lg:ml-6 icon"><i
+        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12 lg:ml-6 icon"><i
           class="fa-solid fa-bell"></i></span>
       <span id="commentIcon" data-content="forCommentIcon"
-        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full h-12 w-12 ml-2 icon"><i
+        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12 lg:ml-2 icon"><i
           class="fa-solid fa-comment-dots"></i></span>
 
       <div id="profileIcon" data-content="forProfileIcon"
-        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full h-12 w-12 ml-2 icon">
+        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12 lg:ml-2 icon">
         <div class="rounded-full h-7 w-7 overflow-hidden border-2 border-black">
           <img class="object-contain h-full w-full" src="/images/uploads/<%= user.avatar%>" alt="avatarImg" />
         </div>
       </div>
       <span id="arrowIcon" data-content="forArrowIcon"
-        class="flex items-center justify-center hover:bg-[#E9E9E9] rounded-full h-7 w-7 ml-2 icon"><i
+        class="flex items-center justify-center hover:bg-[#E9E9E9] rounded-full h-7 w-7 ml-2 icon hidden lg:block"><i
           class="fa-solid fa-angle-down"></i></span>
 
 
       <div class="relative">
         <div id="dropdownMenu"
-          class="flex items-center justify-center absolute right-1 top-4 bg-white shadow-lg h-64 w-48 mt-4 rounded-md border-2 border-zinc-300 z-10 hidden">
+          class="flex items-center justify-center absolute lg:right-1 -right-1 lg:top-4 top-2 bg-white shadow-lg lg:h-64 lg:w-48 h-56 w-40 mt-4 rounded-md border-2 border-zinc-300 z-10 hidden">
 
           <div id="forArrowIcon" class="dropdown-content hidden">
             <h1>¯\_( ͡° ͜ʖ ͡°)_/¯</h1>
           </div>
 
           <div id="forProfileIcon" class="dropdown-content flex items-center justify-center flex-col gap-10 hidden">
-            <div class="rounded-full h-28 w-28 bg-gray-400 overflow-hidden">
+            <div class="rounded-full lg:h-28 lg:w-28 h-24 w-24 bg-gray-400 overflow-hidden">
               <a href="/profile"><img src="/images/uploads/<%= user.avatar%>" alt="Avatar" /></a>
             </div>
             <a href="/logout"
