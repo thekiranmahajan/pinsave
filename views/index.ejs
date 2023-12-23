@@ -1,22 +1,31 @@
 <%- include('./partials/header.ejs') %>
     <div class="flex justify-center items-center overflow-hidden h-screen w-full bg-[#dadada]">
         <div id="container"
-            class="flex items-center justify-center h-[82%] w-[90%] sm:w-[55%] md:w-[50%] lg:w-[28%] lg:h-[90%] lg:rounded-[40px] rounded-3xl bg-white relative">
+            class="flex items-center justify-center h-[82%] w-[90%] sm:w-[55%] md:w-[50%] lg:w-[40%] xl:w-[30%] lg:h-[90%] lg:rounded-[40px] rounded-3xl bg-white relative">
             <span
-                class=" absolute top-6 right-6 lg:right-8  font-bold text-xl lg:text-2xl flex items-center justify-center  hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12 ">
+                class=" absolute top-6 right-6 lg:right-8  font-bold text-xl lg:text-2xl flex items-center justify-center  hover:bg-[#e9e9e9] rounded-full lg:h-12 h-10 w-12 ">
                 <i class="fa-solid fa-xmark"></i>
             </span>
 
-            <div id="content" class="flex flex-col items-center justify-center font-Montserrat ">
+            <div id="content"
+                class="flex flex-col items-center justify-center font-Montserrat w-[75%] md:w-[80%] lg:w-[85%] xl:w-[90%]">
 
                 <img class="w-14 mb-4 lg:w-16 lg:mb-8 lg:mt-0 "
                     src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
                     alt="Pinsave logo">
 
                 <h2 class="lg:text-3xl text-2xl text-center font-extrabold	">Welcome to Pinsave</h2>
+                <div class="relative w-full">
 
-                <p class="text-sm text-center font-semibold leading-10 mb-8">Find new ideas to try</p>
 
+                    <p class=" text-sm text-center font-semibold leading-10 mb-8 ">Find new ideas to try</p>
+                    <% if(error.length>0){ %>
+                        <p
+                            class="text-red-500 font-semibold text-sm text-center absolute top-9 w-full bg-[#e3e3e36f]  px-3 py-1 rounded-xl mx-2 ">
+                            <%=error%>
+                        </p>
+                        <%}%>
+                </div>
                 <form action="/login" method="post"
                     class="flex flex-col  justify-center  h-full lg:w-4/5 w-[98%] mb-5 lg:mb-3">
 

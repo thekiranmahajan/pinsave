@@ -13,7 +13,7 @@ const isLoggedIn = (req, res, next) => {
 };
 
 router.get("/", (req, res) => {
-  res.render("index", { nav: false });
+  res.render("index", { nav: false, error: req.flash("error") });
 });
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
@@ -88,6 +88,7 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/profile",
     failureRedirect: "/",
+    failureFlash: true,
   }),
   (req, res) => {}
 );
