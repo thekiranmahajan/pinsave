@@ -2,20 +2,21 @@
 
   <div class="flex justify-center items-center overflow-hidden h-screen w-full bg-[#dadada]">
     <div id="container"
-      class="flex items-center justify-center h-[95%] w-[90%] lg:h-[78%] lg:w-[25%] lg:rounded-[40px] rounded-3xl bg-white relative">
-      <span class=" absolute top-6 right-6 lg:right-8  font-bold text-xl lg:text-2xl">
+      class="flex items-center justify-center h-[95%] w-[90%]  lg:w-[28%] lg:rounded-[40px] rounded-3xl bg-white relative">
+      <span
+        class=" absolute top-6 right-6 lg:right-8  font-bold text-xl lg:text-2xl flex items-center justify-center  hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12">
         <i class="fa-solid fa-xmark"></i>
       </span>
 
       <div id="content" class="flex flex-col items-center justify-center font-Montserrat ">
 
-        <img class="w-14 mb-4 lg:w-16 lg:mb-8 lg:mt-0 "
+        <img class="w-14 mb-4 lg:mb-2  lg:mt-1 "
           src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="Pinsave logo">
 
-        <h2 class="lg:text-3xl text-2xl text-center font-extrabold	">Welcome to Pinsave</h2>
+        <h2 class=" text-2xl text-center font-extrabold	">Welcome to Pinsave</h2>
 
-        <p class="text-sm text-center font-semibold leading-10 mb-5">Find new ideas to try</p>
-        <form action="/register" method="post" class="flex flex-col  justify-center  h-full w-full mb-3">
+        <p class="text-sm text-center font-semibold leading-10 lg:leading-normal lg:mb-2 mb-5">Find new ideas to try</p>
+        <form action="/register" method="post" class="flex flex-col  justify-center  h-full w-full mb-3 lg:mb-1">
 
           <label class="ml-2 mb-1 text-left text-sm font-bold" for="email">Email</label>
           <input class="custom-input" type="email" placeholder="Email" name="email">
@@ -25,7 +26,8 @@
           <input class="custom-input" type="text" placeholder="username" name="username">
           <label class="ml-2 mb-1 text-left text-sm font-bold" for="password">Password</label>
           <input class="custom-input" type="password" placeholder="Create a password" name="password">
-          <input class="bg-[#D50C22] text-white font-bold py-3 px-2 rounded-2xl mt-8 " type="submit" value="Login">
+          <input class="bg-[#D50C22] text-white font-bold py-3 px-2 rounded-2xl mt-8 lg:mt-4" type="submit"
+            value="Login">
           <p class="text-center font-bold mt-1 mb-1">OR</p>
           <button class="flex gap-3 justify-center items-center bg-[#E3E3E3]  font-bold py-3 px-4 rounded-2xl "><img
               class="h-6"
