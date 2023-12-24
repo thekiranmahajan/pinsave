@@ -25,11 +25,20 @@ router.get("/profile", isLoggedIn, async (req, res, next) => {
   console.log(user);
   res.render("profile", { user, nav: true });
 });
+
 router.get("/create", isLoggedIn, async (req, res, next) => {
   const user = await userModel.findOne({
     username: req.session.passport.user,
   });
   res.render("create", { user, nav: true });
+});
+router.get("/feed", isLoggedIn, async (req, res, next) => {
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+
+  const posts = await postModel.find();
+  res.render("feed", { posts, user, nav: true });
 });
 
 router.post(

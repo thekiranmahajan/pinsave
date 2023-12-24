@@ -1,0 +1,47 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="min-h-screen w-full overflow-hidden font-Montserrat">
+  <% if(posts.length> 0){ %>
+  <div
+    class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6 gap-2 lg:gap-4 px-2 mt-8 lg:mt-14"
+  >
+    <% posts.forEach(post=> { %>
+
+    <div class="flex-none relative">
+      <img
+        class="w-48 h-auto sm:w-52 md:w-60 lg:w-72 rounded-2xl object-cover lg:mb-4 mb-2"
+        src="/images/uploads/<%= post?.postImage %>"
+        alt="<%= post.title %>"
+      />
+      <div
+        class="absolute inset-0 bg-black opacity-0 hover:opacity-100 transition duration-300 ease-in-out rounded-2xl bg-opacity-50"
+      >
+        <a
+          href="#"
+          class="absolute lg:right-4 lg:top-4 lg:py-3 lg:px-4 lg:text-sm font-bold bg-red-600 hover:bg-red-800 rounded-3xl text-white"
+          >Save</a
+        >
+        <span
+          class="cursor-pointer absolute bottom-2 right-12 lg:bottom-4 lg:right-14 flex items-center justify-center text-xs lg:text-md bg-[#E2E2E2] hover:bg-white rounded-full h-8 w-8"
+        >
+          <i class="fa-solid fa-arrow-up-from-bracket"></i
+        ></span>
+        <span
+          class="cursor-pointer absolute bottom-2 right-2 lg:bottom-4 lg:right-4 flex items-center justify-center text-xs lg:text-md bg-[#E2E2E2] hover:bg-white rounded-full h-8 w-8"
+          ><i class="fa-solid fa-ellipsis"></i
+        ></span>
+        <% if(post.link !== ""){ %>
+        <a
+          href="<%= post?.link %>"
+          class="lg:px-2 lg:py-2 mx-2 bg-[#E2E2E2] hover:bg-white absolute rounded-3xl lg:bottom-4 text:xs md:text-sm lg:text-xs lg:w-32 text-center font-bold z-10 truncate"
+        >
+          <%= post?.link?.replace("https://", "") %>
+        </a>
+        <%} %>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+  <% }%>
+</div>
+<%- include('./partials/footer.ejs') %>

@@ -1,119 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/favicon/site.webmanifest" />
+    <title>Pinsave</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="../javascripts/navbar.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/images/favicon/site.webmanifest">
-  <title>Pinsave</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="../javascripts/navbar.js"></script>
-</head>
-
-<body>
-  <% if(nav===true){%>
+  <body>
+    <% if(nav===true){%>
     <div
-      class="nav flex justify-normal items-center h-[5rem] lg:h-[4.3] w-full px-2 lg:px-5 lg:pt-[0.7rem] pt-1 font-Montserrat mb-4 lg:shadow-sm shadow-md select-none gap-1">
+      class="nav flex justify-normal items-center h-[5rem] lg:h-[4.3] w-full px-2 lg:px-5 lg:pt-[0.7rem] pt-1 font-Montserrat mb-4 lg:shadow-sm shadow-md select-none gap-1"
+    >
       <div
-        class="flex lg:mr-2 lg:mt-2 items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10  w-12  ">
-        <img class="w-14 lg:w-9" src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
-          alt="Pinsave logo" />
+        class="flex lg:mr-2 lg:mt-2 items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12"
+      >
+        <a href="/feed">
+          <img
+            class="w-14 lg:w-9"
+            src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
+            alt="Pinsave logo"
+          />
+        </a>
       </div>
       <div class="navlinks lg:gap-2 flex">
-        <a id="homelink"
+        <a
+          id="homelink"
           class="py-3 px-4 rounded-full leading-6 mt-1 font-extrabold focus:ring-4 ring-blue-400 btnlinks hidden lg:block sm:block"
-          href="/">Home</a>
-        <a id="explorelink"
+          href="/feed"
+          >Home</a
+        >
+        <a
+          id="explorelink"
           class="py-3 px-4 rounded-full leading-6 mt-1 font-extrabold focus:ring-4 ring-blue-400 btnlinks hidden sm:block lg:block"
-          href="#">Explore</a>
-        <a id="createlink"
-          class="lg:py-3 sm:py-3 sm:px-4  mt-1 sm:leading-6 lg:px-4 py-2 px-3 rounded-full lg:leading-6 lg:mt-1 text-base font-bold focus:ring-4 ring-blue-400 btnlinks mr-1 "
-          href="/create">Create</a>
+          href="#"
+          >Explore</a
+        >
+        <a
+          id="createlink"
+          class="lg:py-3 sm:py-3 sm:px-4 mt-1 sm:leading-6 lg:px-4 py-2 px-3 rounded-full lg:leading-6 lg:mt-1 text-base font-bold focus:ring-4 ring-blue-400 btnlinks mr-1"
+          href="/create"
+          >Create</a
+        >
       </div>
-      <div class="relative flex items-center justify-center w-40 lg:w-[65%] md:w-[30rem]">
-        <input id="searchBar"
-          class="lg:ml-4  rounded-3xl bg-[#E2E2E2] lg:py-3 lg:px-5 py-2 px-3 w-full placeholder-opacity-80 placeholder-black placeholder:font-bold placeholder:text-sm outline-none focus:ring-4 ring-blue-400 placeholder-transparent text-sm lg:text-base"
-          type="text" placeholder="Search" />
-        <span id="searchIcon"
-          class="flex items-center justify-center gap-1 absolute lg:top-3 lg:left-7 opacity-100 text-sm left-2"><i
-            class="fa-solid fa-magnifying-glass "></i><span class="hidden lg:block">Search</span></span>
+      <div
+        class="relative flex items-center justify-center w-40 lg:w-[65%] md:w-[30rem]"
+      >
+        <input
+          id="searchBar"
+          class="lg:ml-4 rounded-3xl bg-[#E2E2E2] lg:py-3 lg:px-5 py-2 px-3 w-full placeholder-opacity-80 placeholder-black placeholder:font-bold placeholder:text-sm outline-none focus:ring-4 ring-blue-400 placeholder-transparent text-sm lg:text-base"
+          type="text"
+          placeholder="Search"
+        />
+        <span
+          id="searchIcon"
+          class="flex items-center justify-center gap-1 absolute lg:top-3 lg:left-7 opacity-100 text-sm left-2"
+          ><i class="fa-solid fa-magnifying-glass"></i
+          ><span class="hidden lg:block">Search</span></span
+        >
 
-        <span id="crossMarkIcon"
-          class="lg:text-2xl text-xl rounded-full lg:h-12 lg:w-12 flex items-center justify-center absolute top-[0.55] right-0 lg:bottom-0 lg:right-0 hover:bg-[#ffffff] opacity-0"><i
-            class="fa-solid fa-circle-xmark"></i></span>
+        <span
+          id="crossMarkIcon"
+          class="lg:text-2xl text-xl rounded-full lg:h-12 lg:w-12 flex items-center justify-center absolute top-[0.55] right-0 lg:bottom-0 lg:right-0 hover:bg-[#ffffff] opacity-0"
+          ><i class="fa-solid fa-circle-xmark"></i
+        ></span>
       </div>
 
+      <span
+        id="bellIcon"
+        data-content="forBellIcon"
+        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12 lg:ml-6 icon"
+        ><i class="fa-solid fa-bell"></i
+      ></span>
+      <span
+        id="commentIcon"
+        data-content="forCommentIcon"
+        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12 lg:ml-2 icon"
+        ><i class="fa-solid fa-comment-dots"></i
+      ></span>
 
-
-      <span id="bellIcon" data-content="forBellIcon"
-        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12 lg:ml-6 icon"><i
-          class="fa-solid fa-bell"></i></span>
-      <span id="commentIcon" data-content="forCommentIcon"
-        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 h-10 w-12 lg:ml-2 icon"><i
-          class="fa-solid fa-comment-dots"></i></span>
-
-      <div id="profileIcon" data-content="forProfileIcon"
-        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 lg:w-12  h-10 w-12 lg:ml-2 icon">
-        <div class="rounded-full h-7 w-7  overflow-hidden border-2 border-black">
-          <img class="object-contain h-full w-full" src="/images/uploads/<%= user.avatar%>" alt="avatarImg" />
+      <div
+        id="profileIcon"
+        data-content="forProfileIcon"
+        class="flex items-center justify-center text-2xl hover:bg-[#E9E9E9] rounded-full lg:h-12 lg:w-12 h-10 w-12 lg:ml-2 icon"
+      >
+        <div class="rounded-full h-7 w-7 overflow-hidden border-2 border-black">
+          <img
+            class="object-contain h-full w-full"
+            src="/images/uploads/<%= user.avatar%>"
+            alt="avatarImg"
+          />
         </div>
       </div>
-      <span id="arrowIcon" data-content="forArrowIcon"
-        class="text-center hover:bg-[#E9E9E9] rounded-full h-8 w-8 lg:ml-2 icon hidden lg:block sm:block "><i
-          class="fa-solid fa-angle-down mt-3 "></i></span>
-
+      <span
+        id="arrowIcon"
+        data-content="forArrowIcon"
+        class="text-center hover:bg-[#E9E9E9] rounded-full h-8 w-8 lg:ml-2 icon hidden lg:block sm:block"
+        ><i class="fa-solid fa-angle-down mt-3"></i
+      ></span>
 
       <div class="relative">
-        <div id="dropdownMenu"
-          class="flex items-center justify-center absolute lg:right-1 -right-1 lg:top-4 top-2 bg-white shadow-lg lg:h-64 lg:w-48 h-56 w-40 mt-4 rounded-md border-2 border-zinc-300 z-10 hidden">
-
+        <div
+          id="dropdownMenu"
+          class="flex items-center justify-center absolute lg:right-1 -right-1 lg:top-4 top-2 bg-white shadow-lg lg:h-64 lg:w-48 h-56 w-40 mt-4 rounded-md border-2 border-zinc-300 z-10 hidden"
+        >
           <div id="forArrowIcon" class="dropdown-content hidden">
             <h1>¯\_( ͡° ͜ʖ ͡°)_/¯</h1>
           </div>
 
-          <div id="forProfileIcon" class="dropdown-content flex items-center justify-center flex-col gap-10 hidden">
-            <div class="rounded-full lg:h-28 lg:w-28 h-24 w-24 bg-gray-400 overflow-hidden">
-              <a href="/profile"><img src="/images/uploads/<%= user.avatar%>" alt="Avatar" /></a>
+          <div
+            id="forProfileIcon"
+            class="dropdown-content flex items-center justify-center flex-col gap-10 hidden"
+          >
+            <div
+              class="rounded-full lg:h-28 lg:w-28 h-24 w-24 bg-gray-400 overflow-hidden"
+            >
+              <a href="/profile"
+                ><img src="/images/uploads/<%= user.avatar%>" alt="Avatar"
+              /></a>
             </div>
-            <a href="/logout"
-              class=" outline-none focus:ring-4 hover:ring-4 ring-blue-400 bg-red-600 text-white text-sm py-2 px-4 font-bold rounded-xl">Logout</a>
+            <a
+              href="/logout"
+              class="outline-none focus:ring-4 hover:ring-4 ring-blue-400 bg-red-600 text-white text-sm py-2 px-4 font-bold rounded-xl"
+              >Logout</a
+            >
           </div>
           <div id="forBellIcon" class="dropdown-content hidden">
-            <h1 class="text-center">You are alone <br> 🥹</h1>
+            <h1 class="text-center">
+              You are alone <br />
+              🥹
+            </h1>
           </div>
 
-          <div id="forCommentIcon" class="dropdown-content h-full w-full flex flex-col items-center hidden">
-
-            <div class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2 ">
-              <div class="h-7 w-7 ml-2 relative ">
-                <img class="rounded-full h-7" src="https://avatars.githubusercontent.com/u/144778485?v=4" alt="GF">
-                <span class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"></span>
+          <div
+            id="forCommentIcon"
+            class="dropdown-content h-full w-full flex flex-col items-center hidden"
+          >
+            <div
+              class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2"
+            >
+              <div class="h-7 w-7 ml-2 relative">
+                <img
+                  class="rounded-full h-7"
+                  src="https://avatars.githubusercontent.com/u/144778485?v=4"
+                  alt="GF"
+                />
+                <span
+                  class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"
+                ></span>
               </div>
-              <p class="text-xs font-bold text-zinc-500 leading-none ">Your best friend Wit..</p>
+              <p class="text-xs font-bold text-zinc-500 leading-none">
+                Your best friend Wit..
+              </p>
             </div>
-            <div class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2 ">
-              <div class="h-7 w-7 ml-2 relative ">
-                <img class="rounded-full h-7" src="https://avatars.githubusercontent.com/u/144778485?v=4" alt="GF">
-                <span class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"></span>
+            <div
+              class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2"
+            >
+              <div class="h-7 w-7 ml-2 relative">
+                <img
+                  class="rounded-full h-7"
+                  src="https://avatars.githubusercontent.com/u/144778485?v=4"
+                  alt="GF"
+                />
+                <span
+                  class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"
+                ></span>
               </div>
-              <p class="text-xs font-bold text-zinc-500 leading-none ">Hello! Rayyy</p>
+              <p class="text-xs font-bold text-zinc-500 leading-none">
+                Hello! Rayyy
+              </p>
             </div>
-            <div class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2 ">
-              <div class="h-7 w-7 ml-2 relative ">
-                <img class="rounded-full h-7" src="https://avatars.githubusercontent.com/u/144778485?v=4" alt="GF">
-                <span class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"></span>
+            <div
+              class="bg-[#E9E9E9] w-[95%] rounded-lg flex items-center justify-normal h-10 mt-4 gap-2"
+            >
+              <div class="h-7 w-7 ml-2 relative">
+                <img
+                  class="rounded-full h-7"
+                  src="https://avatars.githubusercontent.com/u/144778485?v=4"
+                  alt="GF"
+                />
+                <span
+                  class="h-3 w-3 bg-green-600 rounded-full absolute -top-1 -right-1"
+                ></span>
               </div>
-              <p class="text-xs font-bold text-zinc-500 leading-none ">How are you?</p>
+              <p class="text-xs font-bold text-zinc-500 leading-none">
+                How are you?
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <%} %>
+  </body>
+</html>
