@@ -40,10 +40,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  boards: {
-    type: Array,
-    default: [],
-  },
 });
 
 userSchema.plugin(plm);
