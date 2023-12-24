@@ -1,6 +1,6 @@
 <%- include('./partials/header.ejs') %>
 
-  <div class="container flex flex-col items-center min-h-screen w-full bg-white font-Montserrat select-none">
+  <div class="flex flex-col items-center min-h-screen w-full bg-white font-Montserrat select-none pb-5">
     <form hidden id="avatarUploadForm" action="/file-upload" method="POST" enctype="multipart/form-data">
       <input type="file" name="image" />
     </form>
@@ -33,13 +33,29 @@
       </div>
 
     </div>
-    <div class="pinContainer flex justify-start flex-wrap h-full w-full lg:px-10 lg:py-4 p-3  lg:mt-5 mt-8 gap-2">
-      <div class="card min-h-48 w-[11.5rem] lg:w-52 lg:h-40 rounded-xl overflow-hidden">
-        <img class="object-contain" src="https://i.pinimg.com/564x/72/b7/fa/72b7fa20608cb0975be3aaf588f094a5.jpg"
-          alt="pin" />
-      </div>
+    <% if(user.posts.length> 0){ %>
+      <div class="columns-2 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6 gap-2 lg:gap-4 px-2 mt-8 lg:mt-14">
+        <% user.posts.forEach(post=> { %>
+          <div class="flex-none relative">
+            <img class="w-48 h-auto sm:w-52 md:w-60 lg:w-72 rounded-2xl object-cover lg:mb-4 mb-2"
+              src="/images/uploads/<%= post.postImage %>" alt="Post Image" />
+            <div
+              class="absolute inset-0 bg-black opacity-0 hover:opacity-40 transition duration-300 ease-in-out rounded-2xl">
+              <span
+                class=" absolute top-2 right-12 lg:top-4 lg:right-20 flex items-center justify-center text-sm lg:text-xl bg-white rounded-full lg:h-12 lg:w-12 h-8 w-8 "><i
+                  class="fa-solid fa-pen"></i></span> <span
+                class=" absolute top-2 right-2 lg:top-4 lg:right-4 flex items-center justify-center text-sm lg:text-xl bg-white rounded-full lg:h-12 lg:w-12 h-8 w-8 "><i
+                  class="fa-solid fa-arrow-up-from-bracket"></i></span>
+              <p
+                class="px-2 py-2 absolute rounded-lg bottom-0 text:xs md:text-sm lg:text-sm w-full text-center font-bold z-10 text-white">
+                <%= post.title %>
+              </p>
+            </div>
+          </div>
 
-    </div>
+          <% }); %>
+      </div>
+      <% }%>
   </div>
   <script defer>
     document.querySelector("#avatarUploadIcon").addEventListener("click", () => {

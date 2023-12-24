@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const userModel = require("./users");
-const postModel = require("./create");
+const postModel = require("./posts");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 passport.use(new localStrategy(userModel.authenticate()));
@@ -17,9 +17,12 @@ router.get("/", (req, res) => {
 });
 
 router.get("/profile", isLoggedIn, async (req, res, next) => {
-  const user = await userModel.findOne({
-    username: req.session.passport.user,
-  });
+  const user = await userModel
+    .findOne({
+      username: req.session.passport.user,
+    })
+    .populate("posts");
+  console.log(user);
   res.render("profile", { user, nav: true });
 });
 router.get("/create", isLoggedIn, async (req, res, next) => {
