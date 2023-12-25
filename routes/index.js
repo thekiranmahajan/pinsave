@@ -7,6 +7,7 @@ const localStrategy = require("passport-local");
 passport.use(new localStrategy(userModel.authenticate()));
 const upload = require("./multer");
 const fs = require("fs");
+const path = require("path");
 
 const isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) return next();
@@ -43,6 +44,9 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
   const user = await userModel.findOne({
     username: req.session.passport.user,
   });
+  user.avatar = fs.existsSync(`images/uploads/${user.avatar}`)
+    ? user.avatar
+    : "defaultAvatar.jpg";
   res.render("create", { user, nav: true });
 });
 
@@ -100,7 +104,7 @@ router.post(
       username: req.session.passport.user,
     });
     user.avatar = req.file.filename;
-    user.save();
+    await user.save();
     res.redirect("/profile");
   }
 );

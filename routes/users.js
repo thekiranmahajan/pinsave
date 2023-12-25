@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema({
   ],
   avatar: {
     type: String,
+    default: "defaultAvatar.jpg",
   },
   email: {
     type: String,
