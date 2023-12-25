@@ -71,8 +71,8 @@
     <div class="flex-none relative">
       <img
         class="w-48 h-auto sm:w-52 md:w-60 lg:w-72 rounded-2xl object-cover lg:mb-4 mb-2"
-        src="/images/uploads/<%= post.postImage %>"
-        alt="Post Image"
+        src="<%= post?.imagePath %>"
+        alt="<%= post.title %>"
       />
       <div
         class="absolute inset-0 bg-black opacity-0 hover:opacity-100 transition duration-300 ease-in-out rounded-2xl bg-opacity-50"
