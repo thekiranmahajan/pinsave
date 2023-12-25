@@ -7,6 +7,8 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var expressSession = require("express-session");
+const mongoStore = require("connect-mongo");
+const mongooseConnection = require("./routes/users");
 const passport = require("passport");
 var app = express();
 const flash = require("connect-flash");
@@ -15,11 +17,14 @@ const flash = require("connect-flash");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(flash());
+const store = new mongoStore({ mongoUrl: process.env.MONGODB_URI });
+
 app.use(
   expressSession({
+    secret: "Rayyy Rayyy Rayyy",
+    store: store,
     resave: false,
     saveUninitialized: false,
-    secret: "Rayyyyyyyy",
   })
 );
 app.use(passport.initialize());
