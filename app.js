@@ -8,7 +8,6 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var expressSession = require("express-session");
 const mongoStore = require("connect-mongo");
-const mongooseConnection = require("./routes/users");
 const passport = require("passport");
 var app = express();
 const flash = require("connect-flash");

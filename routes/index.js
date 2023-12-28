@@ -54,7 +54,6 @@ router.get("/profile", isLoggedIn, async (req, res, next) => {
       user.avatar = "defaultAvatar.jpg";
       await user.save();
     }
-    console.log(user.avatar);
     res.render("profile", { user, nav: true });
   } catch (error) {
     console.error(error);
@@ -136,7 +135,6 @@ router.post(
     });
     user.avatar = req.file.filename;
     await user.save();
-    console.log(user.avatar);
 
     res.redirect("/profile");
   }
