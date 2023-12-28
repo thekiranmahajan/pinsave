@@ -23,8 +23,11 @@ app.use(
   expressSession({
     secret: "Rayyy Rayyy Rayyy",
     store: store,
-    resave: false,
+    resave: true,
     saveUninitialized: false,
+    cookie: {
+      maxAge: 900000,
+    },
   })
 );
 app.use(passport.initialize());

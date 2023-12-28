@@ -25,14 +25,36 @@ router.get("/profile", isLoggedIn, async (req, res, next) => {
         username: req.session.passport.user,
       })
       .populate("posts");
-
     user.posts.forEach((post) => {
-      const imagePath = fs.existsSync(`images/uploads/${post.postImage}`)
-        ? `/images/uploads/${post.postImage}`
-        : "https://i.pinimg.com/564x/35/6e/40/356e403878f3694ab491b406e49bdfd7.jpg";
-      post.imagePath = imagePath;
+      const postImagePath = fs.existsSync(
+        path.join(
+          __dirname,
+          "..",
+          "public",
+          "images",
+          "uploads",
+          post.postImage
+        )
+      )
+        ? path.join("/images", "uploads", post.postImage)
+        : "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=740&t=st=1703734722~exp=1703735322~hmac=97826a87ee3185e434d65b9ac4886d6fba152d030f68445f270df65c2c554887";
+
+      post.postImagePath = postImagePath;
     });
 
+    const avatarPath = path.join(
+      __dirname,
+      "..",
+      "public",
+      "images",
+      "uploads",
+      user.avatar
+    );
+    if (!fs.existsSync(avatarPath)) {
+      user.avatar = "defaultAvatar.jpg";
+      await user.save();
+    }
+    console.log(user.avatar);
     res.render("profile", { user, nav: true });
   } catch (error) {
     console.error(error);
@@ -44,9 +66,7 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
   const user = await userModel.findOne({
     username: req.session.passport.user,
   });
-  user.avatar = fs.existsSync(`images/uploads/${user.avatar}`)
-    ? user.avatar
-    : "defaultAvatar.jpg";
+
   res.render("create", { user, nav: true });
 });
 
@@ -58,11 +78,22 @@ router.get("/feed", isLoggedIn, async (req, res, next) => {
     const posts = await postModel.find();
 
     posts.forEach((post) => {
-      const imagePath = fs.existsSync(`images/uploads/${post.postImage}`)
-        ? `/images/uploads/${post.postImage}`
-        : "https://i.pinimg.com/564x/35/6e/40/356e403878f3694ab491b406e49bdfd7.jpg";
-      post.imagePath = imagePath;
+      const postImagePath = fs.existsSync(
+        path.join(
+          __dirname,
+          "..",
+          "public",
+          "images",
+          "uploads",
+          post.postImage
+        )
+      )
+        ? path.join("/images", "uploads", post.postImage)
+        : "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=740&t=st=1703734722~exp=1703735322~hmac=97826a87ee3185e434d65b9ac4886d6fba152d030f68445f270df65c2c554887";
+
+      post.postImagePath = postImagePath;
     });
+
     res.render("feed", { posts, user, nav: true });
   } catch (error) {
     console.error(error);
@@ -105,6 +136,8 @@ router.post(
     });
     user.avatar = req.file.filename;
     await user.save();
+    console.log(user.avatar);
+
     res.redirect("/profile");
   }
 );
