@@ -1,12 +1,19 @@
+# Pinsave: Social image-sharing platform with authentication and authorization 
+
+
+https://github.com/thekiranmahajan/pinsave/assets/91893931/be542a26-2af0-42cd-9697-e8d91afd067e
+
+
+
 ### Hello guys, 🔥This project is feature-rich for sure! just click on the link & Boom....🤯
 
 It has complex features such as the free tier of Render doesn't provide persistent storage due to uploaded images getting deleted after some time so each post image and avatar has a default image for it also added other edge cases to it I would have worked more on UI but i focused more on complex features as my first Backend project.{spoiler: UI is damn accurate to OG Pinterest} other features as below:
 
 
 
-### ✅GitHub link: https://lnkd.in/dxR-utqE
+### ✅GitHub link: https://github.com/thekiranmahajan/pinsave/
 
-### ✅Live on Render: https://lnkd.in/d4s4yNUG
+### ✅Live on Render: https://pinsave-by-ray.onrender.com/
 
 
 
